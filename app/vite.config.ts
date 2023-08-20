@@ -7,7 +7,5 @@ export default defineConfig({
 		cors: true,
 		open: true,
 	},
-	plugins: [
-		react(),
-	],
+	plugins: [react()],
 })

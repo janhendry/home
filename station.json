@@ -1,0 +1,163 @@
+[
+	{
+		"type": "stop",
+		"id": "775985",
+		"name": "Graubündener Straße, Bremen",
+		"location": {
+			"type": "location",
+			"id": "775985",
+			"latitude": 53.071396,
+			"longitude": 8.949382
+		},
+		"products": {
+			"nationalExpress": false,
+			"national": false,
+			"regionalExpress": false,
+			"regional": false,
+			"suburban": false,
+			"bus": true,
+			"ferry": false,
+			"subway": false,
+			"tram": true,
+			"taxi": false
+		}
+	},
+	{
+		"type": "stop",
+		"id": "776237",
+		"name": "Klinikum Bremen-Ost, Bremen",
+		"location": {
+			"type": "location",
+			"id": "776237",
+			"latitude": 53.066201,
+			"longitude": 8.943871
+		},
+		"products": {
+			"nationalExpress": false,
+			"national": false,
+			"regionalExpress": false,
+			"regional": false,
+			"suburban": false,
+			"bus": true,
+			"ferry": false,
+			"subway": false,
+			"tram": false,
+			"taxi": false
+		}
+	},
+	{
+		"type": "stop",
+		"id": "768277",
+		"name": "Rennplatz, Bremen",
+		"location": {
+			"type": "location",
+			"id": "768277",
+			"latitude": 53.071486,
+			"longitude": 8.886511
+		},
+		"products": {
+			"nationalExpress": false,
+			"national": false,
+			"regionalExpress": false,
+			"regional": false,
+			"suburban": false,
+			"bus": true,
+			"ferry": false,
+			"subway": false,
+			"tram": false,
+			"taxi": false
+		}
+	},
+	{
+		"type": "stop",
+		"id": "8000050",
+		"name": "Bremen Hbf",
+		"location": {
+			"type": "location",
+			"id": "8000050",
+			"latitude": 53.08328,
+			"longitude": 8.813681
+		},
+		"products": {
+			"nationalExpress": true,
+			"national": true,
+			"regionalExpress": true,
+			"regional": true,
+			"suburban": true,
+			"bus": true,
+			"ferry": false,
+			"subway": false,
+			"tram": true,
+			"taxi": true
+		}
+	},
+	{
+		"type": "stop",
+		"id": "768373",
+		"name": "Haferkamp, Bremen",
+		"location": {
+			"type": "location",
+			"id": "768373",
+			"latitude": 53.088242,
+			"longitude": 8.79394
+		},
+		"products": {
+			"nationalExpress": false,
+			"national": false,
+			"regionalExpress": false,
+			"regional": false,
+			"suburban": false,
+			"bus": true,
+			"ferry": false,
+			"subway": false,
+			"tram": true,
+			"taxi": false
+		}
+	},
+	{
+		"type": "stop",
+		"id": "768262",
+		"name": "Polizeipräsidium, Bremen",
+		"location": {
+			"type": "location",
+			"id": "768262",
+			"latitude": 53.079172,
+			"longitude": 8.878879
+		},
+		"products": {
+			"nationalExpress": false,
+			"national": false,
+			"regionalExpress": false,
+			"regional": false,
+			"suburban": false,
+			"bus": true,
+			"ferry": false,
+			"subway": false,
+			"tram": true,
+			"taxi": false
+		}
+	},
+	{
+		"type": "stop",
+		"id": "599309",
+		"name": "Lise-Meitner-Straße, Bremen",
+		"location": {
+			"type": "location",
+			"id": "599309",
+			"latitude": 53.103605,
+			"longitude": 8.855624
+		},
+		"products": {
+			"nationalExpress": false,
+			"national": false,
+			"regionalExpress": false,
+			"regional": false,
+			"suburban": false,
+			"bus": true,
+			"ferry": false,
+			"subway": false,
+			"tram": true,
+			"taxi": false
+		}
+	}
+]

@@ -5,22 +5,27 @@ import styles from "./App.module.scss"
 import StoreEditor from "./components/core/StoreEditor"
 import { Allotment } from "allotment"
 import { TramTable } from "./components/tram/TramTable"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+
+const queryClient = new QueryClient()
 
 function App() {
 	const theme = useTheme()
 	return (
-		<ThemeProvider theme={theme}>
-			<div className={styles.App}>
-				<Allotment>
-					<Allotment.Pane>
-						<StoreEditor />
-					</Allotment.Pane>
-					<Allotment.Pane preferredSize={300}>
-						<TramTable />
-					</Allotment.Pane>
+		<QueryClientProvider client={queryClient}>
+			<ThemeProvider theme={theme}>
+				<div className={styles.App}>
+					<Allotment>
+						<Allotment.Pane>
+							<StoreEditor />
+						</Allotment.Pane>
+						<Allotment.Pane preferredSize={300}>
+							<TramTable />
+						</Allotment.Pane>
 					</Allotment>
-			</div>
-		</ThemeProvider>
+				</div>
+			</ThemeProvider>
+		</QueryClientProvider>
 	)
 }
 

@@ -3,9 +3,7 @@ node_modules/
 dist/
 lib/
 data/
-**/.DS_Store
-
-
+.DS_Store
 
 # Yarn
 .pnp.*
