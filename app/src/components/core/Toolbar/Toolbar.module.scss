@@ -1,0 +1,22 @@
+
+.Toolbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 62px;
+    padding: 0 15px;
+    border-bottom: 2px solid var(--divider);
+
+    >div {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    
+    }
+    >:first-of-type {
+        justify-content: "start"
+    }
+    >:last-child {
+        justify-content: "end"
+    }
+}

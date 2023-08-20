@@ -1,0 +1,43 @@
+{
+	"name": "home-app",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
+		"format": "yarn rome format . --write",
+		"check": "yarn rome check"
+	},
+	"dependencies": {
+		"@emotion/react": "^11.11.1",
+		"@emotion/styled": "^11.11.0",
+		"@monaco-editor/react": "^4.5.1",
+		"@mui/base": "^5.0.0-beta.8",
+		"@mui/icons-material": "^5.14.1",
+		"@mui/lab": "^5.0.0-alpha.137",
+		"@nanostores/logger": "^0.2.2",
+		"@nanostores/persistent": "^0.9.0",
+		"@nanostores/react": "^0.7.1",
+		"allotment": "^1.19.0",
+		"classnames": "^2.3.2",
+		"monaco-editor": "^0.40.0",
+		"nanostores": "^0.9.3",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"uuid": "^9.0.0"
+	},
+	"devDependencies": {
+		"@mui/material": "^5.14.2",
+		"@types/node": "~20.4.5",
+		"@types/react": "^18.2.15",
+		"@types/react-dom": "^18.2.7",
+		"@vitejs/plugin-react": "^4.0.3",
+		"rome": "^12.1.0",
+		"sass": "^1.64.0",
+		"typescript": "^5.0.2",
+		"typesync": "^0.11.0",
+		"vite": "^4.4.5"
+	}
+}
