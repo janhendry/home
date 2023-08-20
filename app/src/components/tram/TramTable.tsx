@@ -1,21 +1,23 @@
 import { useState } from "react"
-import { useDepartures } from "../../hooks/useDepatures"
-import { DepartureStation } from "../../api/fetchDeparture"
+
+import { Departure, fetchDeparture } from "../../api/fetchDeparture"
+import { Button } from "@mui/base"
+import { setDeparture } from "../../stores/table"
 
 export function TramTable() {
-	const [station] = useState<DepartureStation>({
-		type: "location",
+	const [station] = useState<Departure>({
 		id: "775985",
-		latitude: 53.071396,
-		longitude: 8.949382,
+		duration: 60,
 	})
 
-	const { data, error, isLoading } = useDepartures(station)
+	const fetchData = async () => {
+		const departure = await fetchDeparture(station)
+		setDeparture(station.id, departure)
+	}
 
 	return (
 		<div>
-			{isLoading && <div>Loading...</div>}
-			{error && <div>Error: {JSON.stringify(error as any, null, 2)}</div>}
+			<Button onClick={fetchData}>Test</Button>
 			{/* {data?.departures.map((departure) => (
 				<div key={departure.tripId}>{JSON.stringify(departure, null, 2)}</div>
 			))} */}

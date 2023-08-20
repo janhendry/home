@@ -1,12 +1,17 @@
-import { useQuery } from "@tanstack/react-query"
-import { DepartureStation, fetchDeparture } from "../api/fetchDeparture"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+import { Api } from "../api/Api"
+import { Departure, fetchDeparture } from "../api/fetchDeparture"
 
-export function useDepartures(station: DepartureStation) {
+const config = {
+	baseUrl: "http://localhost:3001",
+}
+
+const api = new Api(config)
+
+export function useDepartures(departure: Departure) {
 	useEffect(() => {
-		console.log("useDepartures", station)
-		fetchDeparture(station)
-	}, [station])
+		console.log("useDepartures", departure)
+	}, [departure])
 
 	return { isLoading: false, error: null, data: [] }
 }
