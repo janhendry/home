@@ -13,4 +13,7 @@ async function departures(station, opt) {
 	console.log(d)
 }
 
+
+const api = express()
+
 departures()
