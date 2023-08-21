@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-import { createClient } from "hafas-client"
-import { profile as dbProfile } from "hafas-client/p/db/index.js"
-import { createHafasRestApi } from "hafas-rest-api"
-import createHealthCheck from "hafas-client-health-check"
+const createClient = require("hafas-client")
+const dbProfile = require("hafas-client/p/db")
+const createApi = require("hafas-rest-api")
+const createHealthCheck = require("hafas-client-health-check")
 
 async function init() {
 	const config = {
@@ -19,7 +19,7 @@ async function init() {
 
 	const userAgents = process.env.USER_AGENTS || "hafas-rest-api"
 	const client = createClient(dbProfile, userAgents)
-	const api = await createHafasRestApi(client, config)
+	const api = await createApi(client, config)
 	const port = process.env.VITE_PORT || 3000
 	const url = `http://${config.hostname}:${port}`
 
@@ -33,7 +33,7 @@ async function init() {
 		})
 		.catch((err) => {
 			// something exceptional happend
-
+			
 			console.error(err)
 			process.exitCode = 1
 		})

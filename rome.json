@@ -1,7 +1,7 @@
 {
 	"$schema": "./node_modules/rome/configuration_schema.json",
 	"linter": {
-		"ignore": ["**/dist", "**/node_modules/*", "./core/src/types/dockerCompose.ts"],
+		"ignore": ["**/dist", "**/node_modules/*", "./app/src/api/Api.ts"],
 		"enabled": true,
 		"rules": {
 			"recommended": true,
@@ -15,7 +15,7 @@
 		}
 	},
 	"formatter": {
-		"ignore": ["**/dist", "./core/src/generator/types/dockerCompose.ts"],
+		"ignore": ["**/dist", "./app/src/api/Api"],
 		"lineWidth": 120,
 		"enabled": true
 	},
