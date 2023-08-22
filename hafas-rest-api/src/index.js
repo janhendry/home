@@ -32,8 +32,6 @@ async function init() {
 			else console.error("hafas-client instance is not healthy!")
 		})
 		.catch((err) => {
-			// something exceptional happend
-
 			console.error(err)
 			process.exitCode = 1
 		})

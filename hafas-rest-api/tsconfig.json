@@ -3,32 +3,28 @@
 		"composite": true,
 		"module": "ESNext",
 		"moduleResolution": "Node",
+		"target": "ESNext",
+		"sourceMap": true,
 		"allowSyntheticDefaultImports": true,
 		"useDefineForClassFields": true,
-		"lib": [
-			"DOM",
-			"DOM.Iterable",
-			"ESNext"
-		],
+		"allowImportingTsExtensions": true,
 		"allowJs": false,
 		"skipLibCheck": true,
 		"esModuleInterop": false,
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
-		"target": "ESNext",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noEmit": true,
-		"jsx": "react-jsx",
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
+		"lib": [
+			"DOM",
+			"DOM.Iterable",
+			"ESNext"
+		],
 	},
 	"include": [
 		"src"
-	],
-	"references": [
-		{
-			"path": "./tsconfig.node.json"
-		}
 	]
 }
