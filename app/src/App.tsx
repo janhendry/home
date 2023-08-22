@@ -19,7 +19,7 @@ function App() {
 						<Allotment.Pane>
 							<StoreEditor />
 						</Allotment.Pane>
-						<Allotment.Pane preferredSize={300}>
+						<Allotment.Pane>
 							<TramTable />
 						</Allotment.Pane>
 					</Allotment>
