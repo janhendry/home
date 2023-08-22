@@ -1,3 +1,4 @@
+#!/usr/bin/env ts-node --esm
 import express, { Response } from "express"
 import { Departures } from "hafas-client"
 import { client } from "./client.ts"
