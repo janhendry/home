@@ -1,4 +1,4 @@
-import { Departures, Alternative } from "hafas-client"
+import { Alternative } from "hafas-client"
 import { map } from "nanostores"
 
 export const $departure = map<Record<string, readonly Alternative[]>>({})

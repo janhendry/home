@@ -1,6 +1,6 @@
 import { ReadableAtom, WritableAtom } from "nanostores"
-import { $userSettings } from "../../../stores/userSettings"
 import { $departure } from "../../../stores/table"
+import { $userSettings } from "../../../stores/userSettings"
 
 type Store = WritableAtom | ReadableAtom
 

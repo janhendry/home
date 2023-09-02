@@ -2,11 +2,9 @@ import { Monaco } from "@monaco-editor/react"
 import { useStore } from "@nanostores/react"
 import classNames from "classnames"
 import { editor } from "monaco-editor"
-import { MonacoEditor } from "./monaco"
-
 import { $userSettings } from "../../../stores/userSettings"
-
 import styles from "./CodeEditor.module.scss"
+import { MonacoEditor } from "./monaco"
 
 export type Language =
 	| "json"

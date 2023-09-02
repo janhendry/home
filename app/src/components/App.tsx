@@ -1,13 +1,14 @@
 import { ThemeProvider } from "@mui/material"
-import { useTheme } from "./hooks/useTheme"
-
-import styles from "./App.module.scss"
-import StoreEditor from "./components/core/StoreEditor"
-import { Allotment } from "allotment"
-import { TramTable } from "./components/tram/TramTable"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { Allotment } from "allotment"
+import { useTheme } from "../hooks/useTheme"
+import styles from "./App.module.scss"
+import StoreEditor from "./core/StoreEditor"
+import { TramTable } from "./tram/TramTable"
 
 const queryClient = new QueryClient()
+
+const showStoreEditor = import.meta.env.VITE_SHOW_STORE_EDITOR === "true"
 
 function App() {
 	const theme = useTheme()
@@ -16,9 +17,11 @@ function App() {
 			<ThemeProvider theme={theme}>
 				<div className={styles.App}>
 					<Allotment>
-						<Allotment.Pane>
-							<StoreEditor />
-						</Allotment.Pane>
+						{showStoreEditor ? (
+							<Allotment.Pane>
+								<StoreEditor />
+							</Allotment.Pane>
+						) : null}
 						<Allotment.Pane>
 							<TramTable />
 						</Allotment.Pane>

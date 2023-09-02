@@ -1,9 +1,10 @@
 {
-	"name": "hafas-rest-api",
+	"name": "hafas-client-proxy",
+	"private": true,
 	"type": "module",
 	"scripts": {
 		"format": "yarn rome format . --write",
-		"start": "ts-node --esm ./src/api/controller.ts"
+		"start": "ts-node --esm ./src/api/hafaClientProxy.ts"
 	},
 	"dependencies": {
 		"express": "^4.18.2",

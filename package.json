@@ -3,10 +3,11 @@
 	"private": true,
 	"workspaces": [
 		"app",
-		"hafas-rest-api"
+		"hafas-client-proxy"
 	],
 	"scripts": {
-		"app": "yarn workspace home-app run preview"
+		"app": "yarn workspace home-app run preview",
+		"format": "yarn workspaces foreach -vptAi --topological-dev run format"
 	},
 	"devDependencies": {
 		"rome": "12.1.3"
