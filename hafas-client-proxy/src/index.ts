@@ -1,2 +1,2 @@
-import "./controller"
-export * from "./types"
+import "./controller.ts"
+export * from "./types.ts"

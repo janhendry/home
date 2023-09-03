@@ -1,0 +1,20 @@
+.lineNr {}
+
+.minutes {
+	display: inline-flex;
+	gap: 5px;
+}
+
+.delay {
+	font-size: 0.8em;
+	color: red;
+}
+
+.onTime {
+	font-size: 0.8em;
+	color: green;
+}
+
+.direction {
+	justify-self: start;
+}

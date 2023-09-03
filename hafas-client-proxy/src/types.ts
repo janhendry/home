@@ -6,3 +6,5 @@ export type DeparturesRequest = {
 }
 
 export type DeparturesResponse = Departures
+
+export type A = Parameters<HafasClient["departures"]>[0]

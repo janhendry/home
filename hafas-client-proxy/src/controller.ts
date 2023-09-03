@@ -1,8 +1,7 @@
 import express from "express"
-import { addHafaClientProxy } from "./hafaClientProxy"
+import { addHafaClientProxy } from "./hafaClientProxy.ts"
 
 export const controller = express()
-controller.use(express.json())
 
 controller.use((_, res, next) => {
 	res.header("Access-Control-Allow-Origin", "*")
