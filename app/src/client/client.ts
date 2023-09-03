@@ -1,5 +1,5 @@
-import { Station } from "hafas-client"
 import { DeparturesRequest, DeparturesResponse, SearchStationRequest } from "./types"
+import { TabStation } from "../components/tram/TramTable"
 
 const hostname = import.meta.env.VITE_API_HOSTNAME
 const port = import.meta.env.VITE_API_PORT
@@ -7,7 +7,6 @@ const url = `http://${hostname}:${port}`
 
 function fetchDeparture(request: DeparturesRequest): Promise<DeparturesResponse> {
 	const body = JSON.stringify(request)
-	console.log("fetchDeparture", body)
 	return fetch(`${url}/departures`, {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
@@ -15,9 +14,8 @@ function fetchDeparture(request: DeparturesRequest): Promise<DeparturesResponse>
 	}).then((response) => response.json())
 }
 
-function fetchAutocomplete(request: SearchStationRequest): Promise<Station[]> {
+function fetchAutocomplete(request: SearchStationRequest): Promise<TabStation[]> {
 	const body = JSON.stringify(request)
-	console.log("station", body)
 	return fetch(`${url}/station`, {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },

@@ -1,26 +1,64 @@
 import { Button } from "@mui/base"
+import { Dialog, Tabs } from "@mui/material"
+import Tab from "@mui/material/Tab"
 import { useStore } from "@nanostores/react"
+import { Station } from "hafas-client"
+import { useEffect, useState } from "react"
 import { client } from "../../client/client"
 import { DeparturesRequest, DeparturesResponse } from "../../client/types"
 import { $departure, setDeparture } from "../../stores/table"
-import styles from "./TramTable.module.scss"
 import { SchedulesList } from "../Schedules/SchedulesList"
-import { useEffect, useState } from "react"
-import { Dialog } from "@mui/material"
-import { DepartmentOptions } from "../Schedules/DepartmentOptions"
+import { SearchField } from "../core/SearchField/SearchField"
+import styles from "./TramTable.module.scss"
+
+export type TabStation = {
+	id: string
+	name: string
+} & Station
+
+type AppState = {
+	station: TabStation[]
+	selectedStation: TabStation
+}
 
 export function TramTable() {
 	const departure = useStore($departure)
 	const { home } = departure
-	const [station, setStation] = useState("")
+	const [appState, setAppState] = useState<AppState>({
+		station: [
+			{
+				type: "station",
+				id: "768373",
+				name: "Haferwende",
+			},
+			{
+				type: "station",
+				id: "768277",
+				name: "Rennplatz",
+			},
+			{
+				type: "station",
+				id: "599309",
+				name: "Lise-Meitner-Straße",
+			},
+			{
+				type: "station",
+				id: "776237",
+				name: "Klinikum Bremen-Ost",
+			},
+		],
+		selectedStation: {
+			type: "station",
+			id: "768373",
+			name: "Haferwende",
+		},
+	})
+
 	const [open, setOpen] = useState(false)
 
-	const fetchData = (newStation?: string) => async () => {
-		if (newStation !== undefined) {
-			setStation(newStation)
-		}
+	const fetchData = async () => {
 		const request: DeparturesRequest = {
-			station: newStation || station,
+			station: appState.selectedStation.id,
 			options: {
 				duration: 60 * 10,
 			},
@@ -30,7 +68,27 @@ export function TramTable() {
 		setDeparture("home", filterDepartures(departures))
 	}
 
-	const keys = ["line", "direction", "when", "delay", "platform", "alternatives"]
+	const handleChangeTab = (_: any, newValue: TabStation) => {
+		setAppState({
+			...appState,
+			selectedStation: newValue,
+		})
+	}
+
+	const handleSelect = (station: TabStation) => {
+		setAppState({
+			...appState,
+			station: [
+				...appState.station,
+				{
+					...station,
+					id: station.id,
+					name: station.name,
+				},
+			],
+		})
+		setOpen(false)
+	}
 
 	useEffect(() => {
 		const id = setInterval(() => {
@@ -39,17 +97,21 @@ export function TramTable() {
 		return () => clearInterval(id)
 	}, [])
 
+	useEffect(() => {
+		fetchData()
+	}, [appState.selectedStation])
+
 	return (
 		<div className={styles.TramTable}>
-			<Button onClick={fetchData("776237")}>Klinikum</Button>
-			<Button onClick={fetchData("599309")}>Lise Meitner</Button>
-			<Button onClick={fetchData("768277")}>Rennplatz</Button>
-			<Button onClick={fetchData("768373")}>Hafer</Button>
-			<Button onClick={testDeparture}>Test</Button>
+			<Tabs value={appState.selectedStation} onChange={handleChangeTab}>
+				{appState.station.map((station) => (
+					<Tab key={station.id} label={station.name} value={station} />
+				))}
+			</Tabs>
 			<Button onClick={() => setOpen(true)}>Options</Button>
 			{home === undefined ? null : <SchedulesList items={home} />}
 			<Dialog open={open} onClose={() => setOpen(false)}>
-				<DepartmentOptions />
+				<SearchField onSelect={handleSelect} />
 			</Dialog>
 		</div>
 	)
@@ -74,29 +136,3 @@ async function testDeparture() {
 
 	console.log(stations.departures)
 }
-
-// function OldTable(){
-
-// 	return (
-// 		<div className={styles.table}>
-// 				<table>
-// 					<thead>
-// 						<tr>
-// 							<th key={"line"}>{"line"}</th>
-// 						</tr>
-// 					</thead>
-// 					<tbody>
-// 						{home === undefined
-// 							? null
-// 							: home.map((item, index) => (
-// 									<tr key={index}>
-// 										<td key={"line"}>{item.line?.name}</td>
-// 										<td key={"direction"}>{item.direction}</td>
-// 										<td key={"when"}>{formatTime(item.when)}</td>
-// 									</tr>
-// 							  ))}
-// 					</tbody>
-// 				</table>
-// 			</div>
-// 	)
-// }

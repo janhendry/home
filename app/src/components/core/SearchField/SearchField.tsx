@@ -1,11 +1,11 @@
 import { ChangeEvent, useEffect, useRef, useState } from "react"
 import styles from "./SearchField.module.scss"
-import { Station } from "hafas-client"
 import { client } from "../../../client/client"
 import { SearchLineItem } from "./SearchLineItem"
+import { TabStation } from "../../tram/TramTable"
 
-type SearchFieldProps = {
-	onSelect?: (station: Station) => void
+export type SearchFieldProps = {
+	onSelect?: (station: TabStation) => void
 }
 
 export function SearchField({ onSelect }: SearchFieldProps) {
@@ -48,11 +48,11 @@ export function SearchField({ onSelect }: SearchFieldProps) {
 	)
 }
 
-function useSearchField(onSelect: ((station: Station) => void) | undefined) {
+function useSearchField(onSelect: ((station: TabStation) => void) | undefined) {
 	const inputRef = useRef<HTMLInputElement>(null)
 	const menuRef = useClickOutside<HTMLDivElement>(close)
 	const [indexFocus, setIndexFocus] = useState(0)
-	const { station, stationList, handleInput } = useSearchStation()
+	const { station, stationList, handleChange } = useSearchStation()
 
 	const moveIndex = (delta: number) => {
 		setIndexFocus((prevState) => {
@@ -87,6 +87,11 @@ function useSearchField(onSelect: ((station: Station) => void) | undefined) {
 		inputRef.current?.blur()
 	}
 
+	const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
+		setIndexFocus(0)
+		handleChange(e.target.value)
+	}
+
 	useEffect(() => {
 		inputRef.current?.focus()
 	}, [])
@@ -106,20 +111,20 @@ function useSearchField(onSelect: ((station: Station) => void) | undefined) {
 
 function useSearchStation() {
 	const [station, setStation] = useState("")
-	const [stationList, setStationList] = useState<Station[]>([])
+	const [stationList, setStationList] = useState<TabStation[]>([])
 
 	const updateStationList = async () => {
 		setStationList(
 			await client.fetchAutocomplete({
 				query: station,
-				results: 20,
+				results: 100,
 				fuzzy: true,
 			}),
 		)
 	}
 
-	const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-		setStation(e.target.value)
+	const handleChange = (station: string) => {
+		setStation(station)
 	}
 
 	useEffect(() => {
@@ -129,7 +134,7 @@ function useSearchStation() {
 	return {
 		station,
 		stationList,
-		handleInput,
+		handleChange,
 	}
 }
 

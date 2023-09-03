@@ -2,7 +2,7 @@ import { CSSProperties, useEffect, useRef } from "react"
 import { Station } from "hafas-client"
 import styles from "./SearchLineItem.module.scss"
 
-type SearchLineItemProps = {
+export type SearchLineItemProps = {
 	blur: boolean
 	station: Station
 	onClick: () => void
