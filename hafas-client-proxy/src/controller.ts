@@ -9,6 +9,8 @@ controller.use((_, res, next) => {
 	next()
 })
 
+controller.use(express.json())
+
 const port: number = Number.parseInt(process.env.PORT || "3000")
 const hostname = process.env.HOSTNAME || "192.168.178.41"
 const url = `http://${hostname}:${port}`

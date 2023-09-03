@@ -1,25 +1,27 @@
 import { Station } from "hafas-client"
-import { DeparturesRequest, DeparturesResponse } from "./types"
+import { DeparturesRequest, DeparturesResponse, SearchStationRequest } from "./types"
 
 const hostname = import.meta.env.VITE_API_HOSTNAME
 const port = import.meta.env.VITE_API_PORT
 const url = `http://${hostname}:${port}`
 
-function fetchDeparture(params: DeparturesRequest): Promise<DeparturesResponse> {
+function fetchDeparture(request: DeparturesRequest): Promise<DeparturesResponse> {
+	const body = JSON.stringify(request)
+	console.log("fetchDeparture", body)
 	return fetch(`${url}/departures`, {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify(params),
+		body,
 	}).then((response) => response.json())
 }
 
-function fetchAutocomplete(station: string): Promise<Station[]> {
-	console.log("fetchAutocomplete", station)
-
-	return fetch(`${url}/autocomplete?station=${station}`, {
-		method: "GET",
+function fetchAutocomplete(request: SearchStationRequest): Promise<Station[]> {
+	const body = JSON.stringify(request)
+	console.log("station", body)
+	return fetch(`${url}/station`, {
+		method: "POST",
 		headers: { "Content-Type": "application/json" },
-		// body: JSON.stringify(params),
+		body,
 	}).then((response) => response.json())
 }
 

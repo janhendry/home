@@ -1,0 +1,48 @@
+.SearchField {
+	position: relative;
+	min-width: min(700px, 90vw);
+	max-width: 700px;
+	border-radius: 10px;
+	border: solid 1px black;
+	background-color: var(--paper);
+	overflow: hidden;
+	color: var(--text-primary);
+}
+
+.inputField {
+	padding: 10px;
+	background-color: var(--paper);
+	width: 100%;
+	border-radius: 60px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+
+	>input[type=text] {
+		background: transparent;
+		flex: 1;
+		border: none;
+		outline: none;
+		font-size: 30px;
+		color: var(--text-primary);
+
+		&:invalid,
+		&:required {
+			outline: none;
+		}
+	}
+}
+
+.searchIcon {
+	margin-right: 10px;
+	font-size: 1.7rem;
+}
+
+.moduleLineItemList {
+	border-top: 1px solid;
+	border-top-color: var(--divider);
+	overflow: auto;
+	height: min(700px, 50vh);
+	display: flex;
+	flex-direction: column;
+}

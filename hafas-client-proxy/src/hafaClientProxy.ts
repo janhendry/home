@@ -1,6 +1,6 @@
 import { Request, Express } from "express"
 import { createClient, Departures, Station } from "hafas-client"
-import { DeparturesRequest } from "./types"
+import { DeparturesRequest, SearchStationRequest } from "./types"
 import { profile as dbProfile } from "hafas-client/p/db/index.js"
 import { autocomplete } from "db-stations-autocomplete"
 import { readStations } from "db-stations"
@@ -18,19 +18,18 @@ export async function addHafaClientProxy(controller: Express) {
 
 	controller.post("/departures", async (req: Request<null, Departures, DeparturesRequest>, res) => {
 		console.log("POST /departures")
+		console.log(req.body)
 		const departures = await client.departures(req.body.station, req.body.options)
 		res.json(departures)
 	})
 
-	controller.get("/autocomplete", async (req, res) => {
-		const searchStation: string = req.query.station as string
-		console.log("GET /autocomplete", searchStation)
-		const station = autocomplete(searchStation)
+	controller.post("/station", async (req: Request<null, Station[], SearchStationRequest>, res) => {
+		console.log("POST /station", req.body)
+		const { query, results, fuzzy, completion } = req.body
+		console.log(query, results, fuzzy, completion)
+		const stationList = autocomplete(query, results, fuzzy, completion)
 			.map((option) => stations.find((station) => station.id === option.id))
 			.filter((station) => station !== undefined)
-
-		console.log(station)
-
-		res.json(station)
+		res.json(stationList as Station[])
 	})
 }
