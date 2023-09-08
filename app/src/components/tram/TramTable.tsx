@@ -91,13 +91,6 @@ export function TramTable() {
 	}
 
 	useEffect(() => {
-		const id = setInterval(() => {
-			fetchData()
-		}, 1000 * 10)
-		return () => clearInterval(id)
-	}, [])
-
-	useEffect(() => {
 		fetchData()
 	}, [appState.selectedStation])
 

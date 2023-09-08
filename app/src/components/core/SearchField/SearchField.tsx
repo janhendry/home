@@ -29,7 +29,7 @@ export function SearchField({ onSelect }: SearchFieldProps) {
 					type="text"
 					ref={inputRef}
 					value={station}
-					placeholder="Search module"
+					placeholder="Search station"
 					onChange={handleInput}
 					onBlur={handleOnBlur}
 				/>
