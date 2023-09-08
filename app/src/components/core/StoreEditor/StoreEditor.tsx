@@ -1,9 +1,8 @@
 import { Autocomplete, TextField } from "@mui/material"
 import { useStore } from "@nanostores/react"
 import { useMemo, useState } from "react"
-
-import { storeRegister } from "./storeRegister"
 import CodeEditor from "../CodeEditor"
+import { storeRegister } from "./storeRegister"
 
 export default function StoreEditor() {
 	const { code, storeKey, storeKeys, setStoreKey, handleSave } = useStoreEditor()

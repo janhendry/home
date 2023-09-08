@@ -1,10 +1,8 @@
 import { useStore } from "@nanostores/react"
 import { editor } from "monaco-editor"
-
-import { DiffEditor, monaco } from "./monaco"
-
-import styles from "./CodeEditor.module.scss"
 import { $userSettings } from "../../../stores/userSettings"
+import styles from "./CodeEditor.module.scss"
+import { DiffEditor, monaco } from "./monaco"
 
 export interface CodeDiffEditorProps {
 	original: string

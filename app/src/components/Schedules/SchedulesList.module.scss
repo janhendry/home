@@ -1,0 +1,7 @@
+.SchedulesList {
+	display: grid;
+	grid-template-columns: repeat(3, auto) 1fr;
+	place-items: center;
+	gap: 10px;
+	padding: 10px;
+}

@@ -1,0 +1,39 @@
+.SearchLineItem {
+	display: flex;
+	flex-direction: row;
+	border: unset;
+	cursor: pointer;
+	border-bottom: 1px solid var(--divider);
+	box-sizing: border-box;
+	padding: 10px;
+	justify-content: space-between;
+	color: var(--text-primary);
+	background-color: var(--paper);
+
+	&:hover {
+		background-color: var(--paper-hover);
+	}
+}
+
+.description {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	padding-right: 1rem;
+
+	>h1 {
+		font-size: 17px;
+		margin: 0;
+	}
+
+	>p {
+		font-size: 1rem;
+		margin: 0;
+	}
+}
+
+.typeLabels {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}

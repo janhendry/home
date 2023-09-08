@@ -1,7 +1,7 @@
+import { createTheme } from "@mui/material"
 import { useStore } from "@nanostores/react"
 import { useEffect, useMemo } from "react"
 import { $userSettings } from "../stores/userSettings"
-import { createTheme } from "@mui/material"
 
 export function useTheme() {
 	const { themeMode } = useStore($userSettings)
