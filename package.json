@@ -4,12 +4,5 @@
 	"workspaces": [
 		"app",
 		"hafas-client-proxy"
-	],
-	"scripts": {
-		"app": "yarn workspace home-app run preview",
-		"format": "yarn workspaces foreach -vptAi --topological-dev run format"
-	},
-	"devDependencies": {
-		"rome": "12.1.3"
-	}
+	]
 }

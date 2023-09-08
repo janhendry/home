@@ -18,5 +18,7 @@ const url = `http://${hostname}:${port}`
 addHafaClientProxy(controller)
 
 controller.listen(port, hostname, () => {
-	console.info(`Hafas Rest Api is listening on ${url}`)
+	console.log(`Hafas Rest Api is listening on ${url}`)
 })
+
+console.log(`Hafas Rest Api is listening on ${url}`)

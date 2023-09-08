@@ -3,8 +3,9 @@
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
+	"module": "src/main.ts",
 	"scripts": {
-		"dev": "vite",
+		"dev": "bun --bun vite dev",
 		"build": "tsc && vite build",
 		"preview": "vite preview",
 		"format": "yarn rome format . --write",
@@ -16,7 +17,6 @@
 		"@monaco-editor/react": "^4.5.1",
 		"@mui/base": "^5.0.0-beta.8",
 		"@mui/icons-material": "^5.14.1",
-		"@mui/lab": "^5.0.0-alpha.137",
 		"@nanostores/logger": "^0.2.2",
 		"@nanostores/persistent": "^0.9.0",
 		"@nanostores/react": "^0.7.1",
